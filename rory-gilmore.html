@@ -1,0 +1,3997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rory Gilmore Study HQ</title>
+
+<style>
+
+:root{
+  --navy:#18243a;
+  --navy2:#293955;
+  --cream:#f7f0e2;
+  --paper:#fffaf1;
+  --burgundy:#743248;
+  --gold:#b89455;
+  --text:#2d2927;
+  --muted:#77716a;
+  --line:#ddd2c0;
+  --green:#657c60;
+  --shadow:0 8px 25px rgba(30,25,20,.12);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--cream);
+  color:var(--text);
+  transition:.3s;
+}
+
+body.dark{
+  --navy:#0d1119;
+  --navy2:#202b3e;
+  --cream:#12161e;
+  --paper:#1b2230;
+  --text:#eee8dc;
+  --muted:#b7afa4;
+  --line:#3b4555;
+  --burgundy:#b35b72;
+  --gold:#d3af68;
+  --shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+  position:fixed;
+  left:0;
+  top:0;
+  width:235px;
+  height:100vh;
+  background:var(--navy);
+  color:white;
+  padding:24px 17px;
+  overflow-y:auto;
+  z-index:100;
+}
+
+.logo{
+  text-align:center;
+  font-size:24px;
+  margin-bottom:5px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#c8c1b6;
+  font-size:12px;
+  letter-spacing:1px;
+  margin-bottom:24px;
+}
+
+.nav button{
+  display:block;
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#eee;
+  padding:11px 13px;
+  border-radius:9px;
+  text-align:left;
+  margin:3px 0;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.nav button:hover,
+.nav button.active{
+  background:var(--navy2);
+  transform:translateX(3px);
+}
+
+.theme-btn{
+  width:100%;
+  padding:10px;
+  background:transparent;
+  color:white;
+  border:1px solid #777;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+  margin-left:235px;
+  padding:35px;
+  max-width:1500px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+h1{
+  margin:0;
+  font-size:34px;
+}
+
+h2{
+  margin-top:0;
+}
+
+h3{
+  margin-top:20px;
+}
+
+.date{
+  color:var(--muted);
+  margin-top:5px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  margin-bottom:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea,
+select{
+  width:100%;
+  padding:10px;
+  margin:5px 0 10px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--paper);
+  color:var(--text);
+  font:inherit;
+}
+
+input[type="file"]{
+  cursor:pointer;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+button{
+  font:inherit;
+}
+
+.primary{
+  background:var(--burgundy);
+  color:white;
+  border:0;
+  padding:10px 16px;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+.secondary{
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--line);
+  padding:9px 14px;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+.primary:hover,
+.secondary:hover{
+  opacity:.85;
+}
+
+
+/* =========================
+   TASKS
+========================= */
+
+.task{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 0;
+}
+
+.task input{
+  accent-color:var(--burgundy);
+}
+
+.completed{
+  text-decoration:line-through;
+  opacity:.5;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+  height:13px;
+  background:#ddd5c7;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:15px;
+}
+
+.progress div{
+  height:100%;
+  width:0;
+  background:var(--burgundy);
+  transition:.4s;
+}
+
+.xpbar{
+  height:16px;
+  background:#ddd5c7;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.xpbar div{
+  height:100%;
+  width:0;
+  background:var(--gold);
+  transition:.4s;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stat{
+  font-size:34px;
+  font-weight:bold;
+  color:var(--burgundy);
+}
+
+.small{
+  color:var(--muted);
+  font-size:14px;
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+.timer{
+  text-align:center;
+  font-size:62px;
+  color:var(--burgundy);
+  margin:20px 0;
+}
+
+
+/* =========================
+   LOG ITEMS
+========================= */
+
+.log-item{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:12px;
+  margin-top:10px;
+}
+
+
+/* =========================
+   BOOKSHELF
+========================= */
+
+.shelf{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:18px;
+  align-items:end;
+}
+
+.book-spine{
+  min-height:180px;
+  padding:15px 9px;
+  border-radius:5px 9px 9px 5px;
+  background:var(--burgundy);
+  color:white;
+  writing-mode:vertical-rl;
+  text-align:center;
+  box-shadow:5px 5px 12px rgba(0,0,0,.18);
+  transition:.25s;
+}
+
+.book-spine:hover{
+  transform:translateY(-8px) rotate(-2deg);
+}
+
+
+/* =========================
+   WEEK
+========================= */
+
+.week-grid{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(120px,1fr));
+  gap:12px;
+}
+
+.week-day{
+  min-height:260px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+  background:var(--paper);
+  transition:.2s;
+}
+
+.week-day:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+
+.week-day-title{
+  font-size:18px;
+  color:var(--burgundy);
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.week-check{
+  padding:8px 0;
+  border-bottom:1px solid var(--line);
+  font-size:14px;
+}
+
+.week-note{
+  margin-top:15px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.week-progress{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:10px;
+  margin-top:20px;
+}
+
+.week-progress-box{
+  text-align:center;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:12px;
+}
+
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+.achievement-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+}
+
+.achievement{
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+  background:var(--paper);
+  transition:.25s;
+}
+
+.achievement.unlocked{
+  border-color:var(--gold);
+  box-shadow:0 6px 18px rgba(184,148,85,.18);
+}
+
+.achievement.locked{
+  opacity:.45;
+  filter:grayscale(.8);
+}
+
+.achievement-icon{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.achievement-title{
+  font-weight:bold;
+  font-size:17px;
+}
+
+.achievement-description{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:7px;
+}
+
+.unlock{
+  color:var(--gold);
+  font-size:12px;
+  margin-top:10px;
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-header{
+  text-align:center;
+  padding:10px;
+}
+
+.music-icon{
+  font-size:65px;
+  margin-bottom:10px;
+}
+
+.music-status{
+  font-size:18px;
+  color:var(--burgundy);
+  margin:18px 0;
+  text-align:center;
+}
+
+.music-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-top:20px;
+}
+
+.music-button{
+  padding:12px 18px;
+  border-radius:25px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  color:var(--text);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.music-button:hover{
+  transform:translateY(-2px);
+  border-color:var(--burgundy);
+}
+
+.music-button.selected{
+  background:var(--burgundy);
+  color:white;
+}
+
+.music-player{
+  text-align:center;
+}
+
+.music-player audio{
+  width:100%;
+  margin:15px 0;
+}
+
+.song-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px;
+  margin-top:10px;
+  transition:.2s;
+}
+
+.song-row:hover{
+  box-shadow:var(--shadow);
+}
+
+.song-info{
+  min-width:0;
+  text-align:left;
+}
+
+.song-title{
+  font-weight:bold;
+  font-size:16px;
+}
+
+.song-artist{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:4px;
+}
+
+.song-actions{
+  display:flex;
+  gap:7px;
+  flex-shrink:0;
+}
+
+
+/* =========================
+   RORY
+========================= */
+
+.rory-rule{
+  padding:13px;
+  margin:9px 0;
+  border-left:4px solid var(--gold);
+  background:rgba(184,148,85,.08);
+}
+
+.quote{
+  font-style:italic;
+  font-size:19px;
+  line-height:1.5;
+}
+
+
+/* =========================
+   MASCOT
+========================= */
+
+.mascot{
+  position:fixed;
+  right:25px;
+  bottom:20px;
+  font-size:52px;
+  cursor:pointer;
+  z-index:200;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  right:25px;
+  top:25px;
+  background:var(--navy);
+  color:white;
+  padding:14px 19px;
+  border-radius:10px;
+  opacity:0;
+  transform:translateY(-10px);
+  transition:.3s;
+  z-index:500;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden{
+  display:none!important;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:950px){
+
+  .week-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:800px){
+
+  .sidebar{
+    position:relative;
+    width:100%;
+    height:auto;
+  }
+
+  .main{
+    margin-left:0;
+    padding:20px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .week-grid{
+    grid-template-columns:1fr;
+  }
+
+  .song-row{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .song-actions{
+    justify-content:flex-start;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar">
+
+<div class="logo">
+☕ Rory HQ
+</div>
+
+<div class="subtitle">
+study • read • dream
+</div>
+
+<div class="nav">
+
+<button data-page="today">
+🏠 Today
+</button>
+
+<button data-page="study">
+📚 Study
+</button>
+
+<button data-page="reading">
+📖 Reading
+</button>
+
+<button data-page="habits">
+✨ Habits
+</button>
+
+<button data-page="week">
+🗓️ Week
+</button>
+
+<button data-page="goals">
+🎯 Goals
+</button>
+
+<button data-page="bookshelf">
+📚 Bookshelf
+</button>
+
+<button data-page="achievements">
+🏆 Achievements
+</button>
+
+<button data-page="music">
+🎧 Music
+</button>
+
+<button data-page="rory">
+☕ Rory Mode
+</button>
+
+<button data-page="stats">
+📊 Stats
+</button>
+
+<button data-page="night">
+🌙 Night Reset
+</button>
+
+</div>
+
+<br>
+
+<button
+class="theme-btn"
+id="darkButton"
+>
+🌙 Toggle Dark Mode
+</button>
+
+</aside>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="main">
+
+<header>
+
+<div>
+
+<h1 id="pageTitle">
+Good morning, scholar ☕
+</h1>
+
+<div
+class="date"
+id="date"
+></div>
+
+</div>
+
+<strong id="levelText">
+Level 1
+</strong>
+
+</header>
+
+
+<!-- =========================
+     TODAY
+========================= -->
+
+<section id="today" class="page">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>☀️ Today's Routine</h2>
+
+<label class="task">
+<input type="checkbox" class="todayTask">
+<span>Make bed</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="todayTask">
+<span>Get ready properly</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="todayTask">
+<span>Eat breakfast</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="todayTask">
+<span>Study session</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="todayTask">
+<span>Read</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="todayTask">
+<span>Plan tomorrow</span>
+</label>
+
+<div class="progress">
+<div id="todayProgress"></div>
+</div>
+
+<p
+class="small"
+id="todayPercent"
+>
+0% complete
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>🔥 Study Streak</h2>
+
+<div
+class="stat"
+id="streak"
+>
+0
+</div>
+
+<p class="small">
+days
+</p>
+
+<h3>⭐ XP</h3>
+
+<div class="xpbar">
+<div id="xpProgress"></div>
+</div>
+
+<p
+class="small"
+id="xpText"
+>
+0 / 100 XP
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>📝 Daily Note</h2>
+
+<textarea
+id="dailyNote"
+placeholder="What is on your mind today?"
+></textarea>
+
+<button
+class="primary"
+id="saveNoteButton"
+>
+Save Note
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>☕ Today's Reminder</h2>
+
+<p class="quote">
+You don't have to study all day. You just have to make the time you do study count.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STUDY
+========================= -->
+
+<section id="study" class="page hidden">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>⏱️ Pomodoro</h2>
+
+<div
+class="timer"
+id="timer"
+>
+25:00
+</div>
+
+<div style="text-align:center">
+
+<button
+class="primary"
+id="startTimer"
+>
+Start
+</button>
+
+<button
+class="secondary"
+id="pauseTimer"
+>
+Pause
+</button>
+
+<button
+class="secondary"
+id="resetTimer"
+>
+Reset
+</button>
+
+</div>
+
+<p
+class="small"
+style="text-align:center"
+>
+25 minutes study • 5 minutes break
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>📚 Log Study Session</h2>
+
+<input
+id="subject"
+type="text"
+placeholder="Subject"
+>
+
+<input
+id="minutes"
+type="number"
+placeholder="Minutes"
+>
+
+<button
+class="primary"
+id="addStudy"
+>
+Add Session
+</button>
+
+<div id="studyLog"></div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📋 Study Checklist</h2>
+
+<div id="studyChecklist"></div>
+
+<button
+class="primary"
+id="addStudyTask"
+>
++ Add Task
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     READING
+========================= -->
+
+<section id="reading" class="page hidden">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>📖 Reading Tracker</h2>
+
+<input
+id="bookName"
+type="text"
+placeholder="Book"
+>
+
+<input
+id="pages"
+type="number"
+placeholder="Pages read"
+>
+
+<button
+class="primary"
+id="addReading"
+>
+Log Reading
+</button>
+
+<div id="readingLog"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📊 Reading Stats</h2>
+
+<div
+class="stat"
+id="totalPages"
+>
+0
+</div>
+
+<p class="small">
+pages read
+</p>
+
+<div
+class="stat"
+id="booksRead"
+>
+0
+</div>
+
+<p class="small">
+reading sessions
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     HABITS
+========================= -->
+
+<section id="habits" class="page hidden">
+
+<div class="card">
+
+<h2>✨ Habit Tracker</h2>
+
+<p class="small">
+Keep your habits simple and consistent.
+</p>
+
+<div id="habitList"></div>
+
+<button
+class="primary"
+id="addHabit"
+>
++ Add Habit
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     WEEK
+========================= -->
+
+<section id="week" class="page hidden">
+
+<div class="card">
+
+<h2>🗓️ Weekly Overview</h2>
+
+<p class="small">
+Your whole week, Rory-style.
+</p>
+
+<div
+class="week-grid"
+id="weekGrid"
+></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📈 Weekly Focus</h2>
+
+<div class="week-progress">
+
+<div class="week-progress-box">
+<b>MON</b>
+<br>
+📚
+</div>
+
+<div class="week-progress-box">
+<b>TUE</b>
+<br>
+📖
+</div>
+
+<div class="week-progress-box">
+<b>WED</b>
+<br>
+✨
+</div>
+
+<div class="week-progress-box">
+<b>THU</b>
+<br>
+📚
+</div>
+
+<div class="week-progress-box">
+<b>FRI</b>
+<br>
+☕
+</div>
+
+<div class="week-progress-box">
+<b>SAT</b>
+<br>
+🌷
+</div>
+
+<div class="week-progress-box">
+<b>SUN</b>
+<br>
+🌙
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     GOALS
+========================= -->
+
+<section id="goals" class="page hidden">
+
+<div class="card">
+
+<h2>🎯 Goals</h2>
+
+<input
+id="goalInput"
+type="text"
+placeholder="Enter a goal"
+>
+
+<button
+class="primary"
+id="addGoal"
+>
+Add Goal
+</button>
+
+<div id="goalList"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     BOOKSHELF
+========================= -->
+
+<section id="bookshelf" class="page hidden">
+
+<div class="card">
+
+<h2>📚 My Little Bookshelf</h2>
+
+<p class="small">
+Build your own tiny library.
+</p>
+
+<input
+id="shelfBook"
+type="text"
+placeholder="Book title"
+>
+
+<button
+class="primary"
+id="addBook"
+>
+Add Book
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div
+class="shelf"
+id="shelf"
+></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ACHIEVEMENTS
+========================= -->
+
+<section id="achievements" class="page hidden">
+
+<div class="card">
+
+<h2>🏆 Achievements</h2>
+
+<p class="small">
+Collect badges as you study, read, and reach your goals.
+</p>
+
+<div
+class="achievement-grid"
+id="achievementGrid"
+></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<section id="music" class="page hidden">
+
+<div class="card">
+
+<div class="music-header">
+
+<div class="music-icon">
+🎧
+</div>
+
+<h2>
+My Music Library
+</h2>
+
+<p class="small">
+Add your own songs from different artists and groups.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>➕ Add Music</h2>
+
+<p class="small">
+Choose an audio file from your computer and give it a title and artist.
+</p>
+
+<input
+id="musicTitle"
+type="text"
+placeholder="Song title"
+>
+
+<input
+id="musicArtist"
+type="text"
+placeholder="Artist / group"
+>
+
+<input
+id="musicFile"
+type="file"
+accept="audio/*"
+>
+
+<button
+class="primary"
+id="addMusic"
+>
+＋ Add Song
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎵 My Playlist</h2>
+
+<div id="musicPlaylist">
+
+<p class="small">
+No songs added yet. Add your first song 🎧
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="music-player">
+
+<div class="music-icon">
+🎶
+</div>
+
+<h2 id="nowPlaying">
+Nothing playing
+</h2>
+
+<p
+class="small"
+id="nowArtist"
+>
+Choose a song from your playlist.
+</p>
+
+<audio
+id="audioPlayer"
+controls
+>
+</audio>
+
+<div class="music-buttons">
+
+<button
+class="secondary"
+id="previousSong"
+>
+⏮ Previous
+</button>
+
+<button
+class="primary"
+id="playPause"
+>
+▶ Play
+</button>
+
+<button
+class="secondary"
+id="nextSong"
+>
+Next ⏭
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎧 Study Vibes</h2>
+
+<div class="music-buttons">
+
+<button
+class="music-button"
+data-music="☕ Coffee Shop"
+>
+☕ Coffee Shop
+</button>
+
+<button
+class="music-button"
+data-music="🌧️ Rainy Day"
+>
+🌧️ Rainy Day
+</button>
+
+<button
+class="music-button"
+data-music="📚 Library"
+>
+📚 Library
+</button>
+
+<button
+class="music-button"
+data-music="🌙 Late Night"
+>
+🌙 Late Night
+</button>
+
+<button
+class="music-button"
+data-music="🎹 Piano"
+>
+🎹 Piano
+</button>
+
+<button
+class="music-button"
+data-music="🌿 Quiet Study"
+>
+🌿 Quiet Study
+</button>
+
+</div>
+
+<div
+class="music-status"
+id="musicStatus"
+>
+Choose your study atmosphere.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     RORY MODE
+========================= -->
+
+<section id="rory" class="page hidden">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>☕ Rory Mode</h2>
+
+<div class="rory-rule">
+📖 Read something every day.
+</div>
+
+<div class="rory-rule">
+📚 Keep your study space calm.
+</div>
+
+<div class="rory-rule">
+✏️ Focus before scrolling.
+</div>
+
+<div class="rory-rule">
+☕ Take proper breaks.
+</div>
+
+<div class="rory-rule">
+🌙 Prepare for tomorrow.
+</div>
+
+<div class="rory-rule">
+🎓 Stay curious.
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📅 Ideal School Day</h2>
+
+<p><b>6:30</b> — Wake up</p>
+
+<p><b>7:00</b> — Breakfast + get ready</p>
+
+<p><b>8:00</b> — School</p>
+
+<p><b>2:30</b> — Lunch + rest</p>
+
+<p><b>4:00</b> — Study</p>
+
+<p><b>5:00</b> — Reading</p>
+
+<p><b>6:00</b> — Free time</p>
+
+<p><b>8:30</b> — Night reset</p>
+
+<p><b>9:30</b> — Reading + bed</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🕯️ Rory Study Rules</h2>
+
+<p>
+1. Put distractions away during focused work.
+</p>
+
+<p>
+2. Keep a notebook nearby.
+</p>
+
+<p>
+3. Make a tiny plan before starting.
+</p>
+
+<p>
+4. Take breaks without guilt.
+</p>
+
+<p>
+5. Prepare for tomorrow before bed.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section id="stats" class="page hidden">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>📚 Study Time</h2>
+
+<div
+class="stat"
+id="statMinutes"
+>
+0
+</div>
+
+<p class="small">
+total minutes
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>📖 Pages</h2>
+
+<div
+class="stat"
+id="statPages"
+>
+0
+</div>
+
+<p class="small">
+total pages
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎯 Goals</h2>
+
+<div
+class="stat"
+id="statGoals"
+>
+0
+</div>
+
+<p class="small">
+completed goals
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>🔥 Streak</h2>
+
+<div
+class="stat"
+id="statStreak"
+>
+0
+</div>
+
+<p class="small">
+days
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     NIGHT RESET
+========================= -->
+
+<section id="night" class="page hidden">
+
+<div class="card">
+
+<h2>🌙 Night Reset</h2>
+
+<label class="task">
+<input type="checkbox" class="nightTask">
+<span>Pack school bag</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="nightTask">
+<span>Choose outfit</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="nightTask">
+<span>Prepare books</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="nightTask">
+<span>Check tomorrow's schedule</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="nightTask">
+<span>Read for a little while</span>
+</label>
+
+<label class="task">
+<input type="checkbox" class="nightTask">
+<span>Put phone away</span>
+</label>
+
+<h3>
+Tomorrow's note
+</h3>
+
+<textarea
+id="tomorrowNote"
+placeholder="What do you want tomorrow to feel like?"
+></textarea>
+
+<button
+class="primary"
+id="saveNight"
+>
+Save Night Reset
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- MASCOT -->
+
+<div
+class="mascot"
+id="mascot"
+>
+🦊
+</div>
+
+
+<div
+class="toast"
+id="toast"
+></div>
+
+
+<script>
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+const pageTitles={
+
+today:"Good morning, scholar ☕",
+
+study:"Time to focus 📚",
+
+reading:"A quiet reading hour 📖",
+
+habits:"Tiny habits, big results ✨",
+
+week:"Your week at a glance 🗓️",
+
+goals:"Dream big 🎯",
+
+bookshelf:"Your little bookshelf 📚",
+
+achievements:"Look what you've earned 🏆",
+
+music:"Set the study atmosphere 🎧",
+
+rory:"Enter Rory Mode ☕",
+
+stats:"Look at you go 📊",
+
+night:"Slow down for tonight 🌙"
+
+};
+
+
+const navButtons=
+document.querySelectorAll(".nav button");
+
+
+navButtons.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+const page=
+button.dataset.page;
+
+
+document
+.querySelectorAll(".page")
+.forEach(section=>{
+section.classList.add("hidden");
+});
+
+
+document
+.getElementById(page)
+.classList.remove("hidden");
+
+
+navButtons.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+
+button.classList.add("active");
+
+
+document
+.getElementById("pageTitle")
+.textContent=
+pageTitles[page];
+
+
+renderStats();
+renderAchievements();
+
+});
+
+});
+
+
+document
+.querySelector(
+'.nav button[data-page="today"]'
+)
+.classList.add("active");
+
+
+/* =========================
+   DATE
+========================= */
+
+document.getElementById("date")
+.textContent=
+new Date().toLocaleDateString(
+undefined,
+{
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+}
+);
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+document
+.getElementById("darkButton")
+.addEventListener("click",()=>{
+
+document.body.classList.toggle("dark");
+
+localStorage.setItem(
+"roryDark",
+document.body.classList.contains("dark")
+);
+
+});
+
+
+if(
+localStorage.getItem("roryDark")==="true"
+){
+
+document.body.classList.add("dark");
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function toast(message){
+
+const box=
+document.getElementById("toast");
+
+box.textContent=message;
+
+box.classList.add("show");
+
+setTimeout(()=>{
+box.classList.remove("show");
+},2200);
+
+}
+
+
+/* =========================
+   XP
+========================= */
+
+function getXP(){
+
+return Number(
+localStorage.getItem("roryXP")||0
+);
+
+}
+
+
+function addXP(amount){
+
+const xp=
+getXP()+amount;
+
+localStorage.setItem(
+"roryXP",
+xp
+);
+
+updateXP();
+renderAchievements();
+
+}
+
+
+function updateXP(){
+
+const xp=getXP();
+
+const level=
+Math.floor(xp/100)+1;
+
+const current=
+xp%100;
+
+
+document.getElementById(
+"levelText"
+).textContent=
+"Level "+level;
+
+
+document.getElementById(
+"xpProgress"
+).style.width=
+current+"%";
+
+
+document.getElementById(
+"xpText"
+).textContent=
+current+" / 100 XP";
+
+}
+
+
+updateXP();
+
+
+/* =========================
+   TODAY
+========================= */
+
+const todayTasks=
+document.querySelectorAll(
+".todayTask"
+);
+
+
+const savedToday=
+JSON.parse(
+localStorage.getItem(
+"roryToday"
+)||"[]"
+);
+
+
+todayTasks.forEach(
+(task,index)=>{
+
+task.checked=
+savedToday[index]===true;
+
+task.addEventListener(
+"change",
+updateToday
+);
+
+});
+
+
+function updateToday(){
+
+const states=
+[...todayTasks]
+.map(task=>task.checked);
+
+
+localStorage.setItem(
+"roryToday",
+JSON.stringify(states)
+);
+
+
+const done=
+states.filter(Boolean).length;
+
+
+const percent=
+Math.round(
+done/states.length*100
+);
+
+
+document.getElementById(
+"todayProgress"
+).style.width=
+percent+"%";
+
+
+document.getElementById(
+"todayPercent"
+).textContent=
+percent+"% complete";
+
+
+if(
+done===states.length
+){
+
+toast(
+"✨ Daily routine complete!"
+);
+
+}
+
+}
+
+
+updateToday();
+
+
+/* =========================
+   DAILY NOTE
+========================= */
+
+const dailyNote=
+document.getElementById(
+"dailyNote"
+);
+
+
+dailyNote.value=
+localStorage.getItem(
+"roryDailyNote"
+)||"";
+
+
+document
+.getElementById("saveNoteButton")
+.addEventListener("click",()=>{
+
+localStorage.setItem(
+"roryDailyNote",
+dailyNote.value
+);
+
+toast("📝 Note saved!");
+
+});
+
+
+/* =========================
+   POMODORO
+========================= */
+
+let timerSeconds=
+25*60;
+
+let timerInterval=null;
+
+
+function showTimer(){
+
+const minutes=
+Math.floor(timerSeconds/60)
+.toString()
+.padStart(2,"0");
+
+
+const seconds=
+(timerSeconds%60)
+.toString()
+.padStart(2,"0");
+
+
+document.getElementById(
+"timer"
+).textContent=
+minutes+":"+seconds;
+
+}
+
+
+document
+.getElementById("startTimer")
+.addEventListener("click",()=>{
+
+if(timerInterval)return;
+
+
+timerInterval=
+setInterval(()=>{
+
+if(timerSeconds>0){
+
+timerSeconds--;
+
+showTimer();
+
+}else{
+
+clearInterval(
+timerInterval
+);
+
+timerInterval=null;
+
+addXP(30);
+
+toast(
+"🎉 Pomodoro complete!"
+);
+
+}
+
+},1000);
+
+});
+
+
+document
+.getElementById("pauseTimer")
+.addEventListener("click",()=>{
+
+clearInterval(timerInterval);
+
+timerInterval=null;
+
+});
+
+
+document
+.getElementById("resetTimer")
+.addEventListener("click",()=>{
+
+clearInterval(timerInterval);
+
+timerInterval=null;
+
+timerSeconds=25*60;
+
+showTimer();
+
+});
+
+
+showTimer();
+
+
+/* =========================
+   STUDY LOG
+========================= */
+
+let studyData=
+JSON.parse(
+localStorage.getItem(
+"roryStudy"
+)||"[]"
+);
+
+
+function renderStudy(){
+
+const box=
+document.getElementById(
+"studyLog"
+);
+
+box.innerHTML="";
+
+
+studyData
+.slice()
+.reverse()
+.forEach(item=>{
+
+const div=
+document.createElement("div");
+
+div.className="log-item";
+
+div.innerHTML=
+`
+<b>${item.subject}</b>
+—
+${item.minutes} min
+
+<br>
+
+<span class="small">
+${item.date}
+</span>
+`;
+
+box.appendChild(div);
+
+});
+
+}
+
+
+document
+.getElementById("addStudy")
+.addEventListener("click",()=>{
+
+const subject=
+document.getElementById(
+"subject"
+).value.trim();
+
+
+const minutes=
+Number(
+document.getElementById(
+"minutes"
+).value
+);
+
+
+if(!subject||!minutes){
+
+toast(
+"Please enter a subject and time."
+);
+
+return;
+
+}
+
+
+studyData.push({
+
+subject,
+minutes,
+
+date:
+new Date().toLocaleDateString()
+
+});
+
+
+localStorage.setItem(
+"roryStudy",
+JSON.stringify(studyData)
+);
+
+
+document.getElementById(
+"subject"
+).value="";
+
+
+document.getElementById(
+"minutes"
+).value="";
+
+
+addXP(
+Math.min(minutes,50)
+);
+
+
+renderStudy();
+renderStats();
+renderAchievements();
+
+});
+
+
+renderStudy();
+
+
+/* =========================
+   STUDY CHECKLIST
+========================= */
+
+let studyTasks=
+JSON.parse(
+localStorage.getItem(
+"roryStudyTasks"
+)||"[]"
+);
+
+
+function renderStudyTasks(){
+
+const box=
+document.getElementById(
+"studyChecklist"
+);
+
+box.innerHTML="";
+
+
+studyTasks.forEach(
+(task,index)=>{
+
+const label=
+document.createElement(
+"label"
+);
+
+label.className="task";
+
+
+const checkbox=
+document.createElement(
+"input"
+);
+
+checkbox.type="checkbox";
+
+checkbox.checked=
+task.done;
+
+
+const span=
+document.createElement(
+"span"
+);
+
+span.textContent=
+task.text;
+
+
+if(task.done){
+
+span.classList.add(
+"completed"
+);
+
+}
+
+
+checkbox.addEventListener(
+"change",
+()=>{
+
+task.done=
+checkbox.checked;
+
+
+if(task.done){
+addXP(5);
+}
+
+saveStudyTasks();
+
+}
+
+);
+
+
+label.appendChild(
+checkbox
+);
+
+label.appendChild(
+span
+);
+
+box.appendChild(
+label
+);
+
+});
+
+}
+
+
+function saveStudyTasks(){
+
+localStorage.setItem(
+"roryStudyTasks",
+JSON.stringify(studyTasks)
+);
+
+renderStudyTasks();
+
+}
+
+
+document
+.getElementById("addStudyTask")
+.addEventListener("click",()=>{
+
+const text=
+prompt(
+"What do you need to study?"
+);
+
+
+if(!text)return;
+
+
+studyTasks.push({
+text,
+done:false
+});
+
+
+saveStudyTasks();
+
+});
+
+
+renderStudyTasks();
+
+
+/* =========================
+   READING
+========================= */
+
+let readingData=
+JSON.parse(
+localStorage.getItem(
+"roryReading"
+)||"[]"
+);
+
+
+function renderReading(){
+
+const box=
+document.getElementById(
+"readingLog"
+);
+
+box.innerHTML="";
+
+
+readingData
+.slice()
+.reverse()
+.forEach(item=>{
+
+const div=
+document.createElement("div");
+
+div.className="log-item";
+
+div.innerHTML=
+`
+<b>${item.book}</b>
+—
+${item.pages} pages
+
+<br>
+
+<span class="small">
+${item.date}
+</span>
+`;
+
+box.appendChild(div);
+
+});
+
+
+const total=
+readingData.reduce(
+(sum,item)=>
+sum+item.pages,
+0
+);
+
+
+document.getElementById(
+"totalPages"
+).textContent=
+total;
+
+
+document.getElementById(
+"booksRead"
+).textContent=
+readingData.length;
+
+}
+
+
+document
+.getElementById("addReading")
+.addEventListener("click",()=>{
+
+const book=
+document.getElementById(
+"bookName"
+).value.trim();
+
+
+const pages=
+Number(
+document.getElementById(
+"pages"
+).value
+);
+
+
+if(!book||!pages){
+
+toast(
+"Please enter a book and pages."
+);
+
+return;
+
+}
+
+
+readingData.push({
+
+book,
+pages,
+
+date:
+new Date().toLocaleDateString()
+
+});
+
+
+localStorage.setItem(
+"roryReading",
+JSON.stringify(readingData)
+);
+
+
+document.getElementById(
+"bookName"
+).value="";
+
+
+document.getElementById(
+"pages"
+).value="";
+
+
+addXP(
+Math.min(pages,30)
+);
+
+
+renderReading();
+renderAchievements();
+
+});
+
+
+renderReading();
+
+
+/* =========================
+   HABITS
+========================= */
+
+let habits=
+JSON.parse(
+localStorage.getItem(
+"roryHabits"
+)||
+'["Read","Study","Drink water","Tidy desk"]'
+);
+
+
+let habitDone=
+JSON.parse(
+localStorage.getItem(
+"roryHabitDone"
+)||"{}"
+);
+
+
+if(
+typeof habitDone!=="object"||
+Array.isArray(habitDone)||
+habitDone===null
+){
+
+habitDone={};
+
+}
+
+
+function renderHabits(){
+
+const box=
+document.getElementById(
+"habitList"
+);
+
+box.innerHTML="";
+
+
+habits.forEach(
+(habit,index)=>{
+
+const label=
+document.createElement("label");
+
+label.className="task";
+
+
+const checkbox=
+document.createElement("input");
+
+checkbox.type="checkbox";
+
+checkbox.checked=
+habitDone[index]===true;
+
+
+const span=
+document.createElement("span");
+
+span.textContent=
+habit;
+
+
+if(checkbox.checked){
+
+span.classList.add(
+"completed"
+);
+
+}
+
+
+checkbox.addEventListener(
+"change",
+()=>{
+
+habitDone[index]=
+checkbox.checked;
+
+
+localStorage.setItem(
+"roryHabitDone",
+JSON.stringify(habitDone)
+);
+
+
+if(checkbox.checked){
+
+addXP(5);
+
+}
+
+
+renderHabits();
+
+});
+
+label.appendChild(
+checkbox
+);
+
+label.appendChild(
+span
+);
+
+box.appendChild(
+label
+);
+
+});
+
+}
+
+
+document
+.getElementById("addHabit")
+.addEventListener("click",()=>{
+
+const habit=
+prompt(
+"What habit would you like to add?"
+);
+
+
+if(!habit)return;
+
+
+habits.push(habit);
+
+
+localStorage.setItem(
+"roryHabits",
+JSON.stringify(habits)
+);
+
+
+renderHabits();
+
+});
+
+
+renderHabits();
+
+
+/* =========================
+   GOALS
+========================= */
+
+let goals=
+JSON.parse(
+localStorage.getItem(
+"roryGoals"
+)||"[]"
+);
+
+
+function renderGoals(){
+
+const box=
+document.getElementById(
+"goalList"
+);
+
+box.innerHTML="";
+
+
+goals.forEach(
+goal=>{
+
+const label=
+document.createElement("label");
+
+label.className="task";
+
+
+const checkbox=
+document.createElement("input");
+
+checkbox.type="checkbox";
+
+checkbox.checked=
+goal.done;
+
+
+const span=
+document.createElement("span");
+
+span.textContent=
+goal.text;
+
+
+if(goal.done){
+
+span.classList.add(
+"completed"
+);
+
+}
+
+
+checkbox.addEventListener(
+"change",
+()=>{
+
+goal.done=
+checkbox.checked;
+
+
+if(goal.done){
+
+addXP(15);
+
+}
+
+
+saveGoals();
+
+});
+
+
+label.appendChild(
+checkbox
+);
+
+label.appendChild(
+span
+);
+
+box.appendChild(
+label
+);
+
+});
+
+}
+
+
+function saveGoals(){
+
+localStorage.setItem(
+"roryGoals",
+JSON.stringify(goals)
+);
+
+renderGoals();
+renderStats();
+renderAchievements();
+
+}
+
+
+document
+.getElementById("addGoal")
+.addEventListener("click",()=>{
+
+const input=
+document.getElementById(
+"goalInput"
+);
+
+
+const text=
+input.value.trim();
+
+
+if(!text)return;
+
+
+goals.push({
+
+text,
+done:false
+
+});
+
+
+input.value="";
+
+saveGoals();
+
+});
+
+
+renderGoals();
+
+
+/* =========================
+   BOOKSHELF
+========================= */
+
+let shelfBooks=
+JSON.parse(
+localStorage.getItem(
+"roryBooks"
+)||"[]"
+);
+
+
+function renderShelf(){
+
+const shelf=
+document.getElementById(
+"shelf"
+);
+
+shelf.innerHTML="";
+
+
+shelfBooks.forEach(
+book=>{
+
+const div=
+document.createElement(
+"div"
+);
+
+div.className=
+"book-spine";
+
+div.textContent=
+book;
+
+shelf.appendChild(div);
+
+});
+
+}
+
+
+document
+.getElementById("addBook")
+.addEventListener("click",()=>{
+
+const input=
+document.getElementById(
+"shelfBook"
+);
+
+
+const title=
+input.value.trim();
+
+
+if(!title)return;
+
+
+shelfBooks.push(title);
+
+
+localStorage.setItem(
+"roryBooks",
+JSON.stringify(shelfBooks)
+);
+
+
+input.value="";
+
+renderShelf();
+
+});
+
+
+renderShelf();
+
+
+/* =========================
+   WEEK
+========================= */
+
+const weekDays=[
+"Monday",
+"Tuesday",
+"Wednesday",
+"Thursday",
+"Friday",
+"Saturday",
+"Sunday"
+];
+
+
+const weekGrid=
+document.getElementById(
+"weekGrid"
+);
+
+
+weekDays.forEach(day=>{
+
+const div=
+document.createElement(
+"div"
+);
+
+div.className="week-day";
+
+
+div.innerHTML=`
+
+<div class="week-day-title">
+${day}
+</div>
+
+<div class="week-check">
+☐ Study
+</div>
+
+<div class="week-check">
+☐ Read
+</div>
+
+<div class="week-check">
+☐ Habit
+</div>
+
+<div class="week-check">
+☐ Drink water
+</div>
+
+<div class="week-check">
+☐ Tidy desk
+</div>
+
+<div class="week-note">
+Add your own plans here.
+</div>
+
+`;
+
+
+weekGrid.appendChild(div);
+
+});
+
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+function getAchievements(){
+
+const totalMinutes=
+studyData.reduce(
+(sum,item)=>
+sum+item.minutes,
+0
+);
+
+
+const totalPages=
+readingData.reduce(
+(sum,item)=>
+sum+item.pages,
+0
+);
+
+
+const completedGoals=
+goals.filter(
+goal=>goal.done
+).length;
+
+
+const completedToday=
+[...todayTasks]
+.filter(
+task=>task.checked
+).length;
+
+
+const xp=getXP();
+
+
+return [
+
+{
+icon:"🌱",
+title:"First Steps",
+description:"Complete your first daily task.",
+unlocked:completedToday>=1
+},
+
+{
+icon:"📚",
+title:"First Study Hour",
+description:"Study for 60 total minutes.",
+unlocked:totalMinutes>=60
+},
+
+{
+icon:"🎓",
+title:"Scholar",
+description:"Study for 300 total minutes.",
+unlocked:totalMinutes>=300
+},
+
+{
+icon:"🏆",
+title:"Super Scholar",
+description:"Study for 600 total minutes.",
+unlocked:totalMinutes>=600
+},
+
+{
+icon:"📖",
+title:"Bookworm",
+description:"Read 50 pages.",
+unlocked:totalPages>=50
+},
+
+{
+icon:"📚",
+title:"Serious Reader",
+description:"Read 200 pages.",
+unlocked:totalPages>=200
+},
+
+{
+icon:"🎯",
+title:"Goal Getter",
+description:"Complete 3 goals.",
+unlocked:completedGoals>=3
+},
+
+{
+icon:"⭐",
+title:"XP Collector",
+description:"Earn 500 XP.",
+unlocked:xp>=500
+},
+
+{
+icon:"💫",
+title:"Level 5",
+description:"Reach Level 5.",
+unlocked:xp>=400
+},
+
+{
+icon:"☕",
+title:"Rory Energy",
+description:"Earn 1000 XP.",
+unlocked:xp>=1000
+},
+
+{
+icon:"🔥",
+title:"Consistency Queen",
+description:"Build a 7-day streak.",
+unlocked:getStreak()>=7
+},
+
+{
+icon:"🌙",
+title:"Night Reset",
+description:"Complete a full night reset.",
+unlocked:
+JSON.parse(
+localStorage.getItem(
+"roryNight"
+)||"[]"
+).filter(Boolean).length>=6
+}
+
+];
+
+}
+
+
+function renderAchievements(){
+
+const grid=
+document.getElementById(
+"achievementGrid"
+);
+
+
+if(!grid)return;
+
+
+grid.innerHTML="";
+
+
+getAchievements()
+.forEach(achievement=>{
+
+const card=
+document.createElement(
+"div"
+);
+
+
+card.className=
+"achievement "+
+(
+achievement.unlocked
+?"unlocked"
+:"locked"
+);
+
+
+card.innerHTML=`
+
+<div class="achievement-icon">
+${achievement.icon}
+</div>
+
+<div class="achievement-title">
+${achievement.title}
+</div>
+
+<div class="achievement-description">
+${achievement.description}
+</div>
+
+<div class="unlock">
+${
+achievement.unlocked
+?"✓ UNLOCKED"
+:"🔒 LOCKED"
+}
+</div>
+
+`;
+
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+renderAchievements();
+
+
+/* =========================
+   MUSIC LIBRARY
+========================= */
+
+let musicLibrary=[];
+
+let currentSong=-1;
+
+
+const audioPlayer=
+document.getElementById(
+"audioPlayer"
+);
+
+
+const musicPlaylist=
+document.getElementById(
+"musicPlaylist"
+);
+
+
+function renderMusicLibrary(){
+
+musicPlaylist.innerHTML="";
+
+
+if(musicLibrary.length===0){
+
+musicPlaylist.innerHTML=`
+
+<p class="small">
+No songs added yet. Add your first song 🎧
+</p>
+
+`;
+
+return;
+
+}
+
+
+musicLibrary.forEach(
+(song,index)=>{
+
+const row=
+document.createElement("div");
+
+row.className=
+"song-row";
+
+
+const info=
+document.createElement("div");
+
+info.className=
+"song-info";
+
+
+info.innerHTML=`
+
+<div class="song-title">
+${escapeHTML(song.title)}
+</div>
+
+<div class="song-artist">
+🎤 ${escapeHTML(song.artist)}
+</div>
+
+`;
+
+
+const actions=
+document.createElement("div");
+
+actions.className=
+"song-actions";
+
+
+const playButton=
+document.createElement("button");
+
+playButton.className=
+"primary";
+
+playButton.textContent=
+"▶";
+
+
+playButton.title=
+"Play";
+
+
+playButton.addEventListener(
+"click",
+()=>{
+playSong(index);
+}
+);
+
+
+const deleteButton=
+document.createElement("button");
+
+deleteButton.className=
+"secondary";
+
+deleteButton.textContent=
+"🗑";
+
+
+deleteButton.title=
+"Delete";
+
+
+deleteButton.addEventListener(
+"click",
+()=>{
+deleteSong(index);
+}
+);
+
+
+actions.appendChild(
+playButton
+);
+
+actions.appendChild(
+deleteButton
+);
+
+
+row.appendChild(info);
+
+row.appendChild(actions);
+
+musicPlaylist.appendChild(row);
+
+});
+
+}
+
+
+function escapeHTML(text){
+
+const div=
+document.createElement("div");
+
+div.textContent=
+text;
+
+return div.innerHTML;
+
+}
+
+
+/*
+  The selected audio file is turned
+  into a browser-only object URL.
+*/
+
+document
+.getElementById("addMusic")
+.addEventListener(
+"click",
+()=>{
+
+const title=
+document
+.getElementById("musicTitle")
+.value
+.trim();
+
+
+const artist=
+document
+.getElementById("musicArtist")
+.value
+.trim();
+
+
+const file=
+document
+.getElementById("musicFile")
+.files[0];
+
+
+if(!title){
+
+toast(
+"Please enter the song title 🎵"
+);
+
+return;
+
+}
+
+
+if(!artist){
+
+toast(
+"Please enter the artist or group 🎤"
+);
+
+return;
+
+}
+
+
+if(!file){
+
+toast(
+"Please choose an audio file 🎧"
+);
+
+return;
+
+}
+
+
+const fileURL=
+URL.createObjectURL(file);
+
+
+musicLibrary.push({
+
+title:title,
+
+artist:artist,
+
+url:fileURL
+
+});
+
+
+document
+.getElementById("musicTitle")
+.value="";
+
+
+document
+.getElementById("musicArtist")
+.value="";
+
+
+document
+.getElementById("musicFile")
+.value="";
+
+
+renderMusicLibrary();
+
+
+toast(
+"🎵 Song added!"
+);
+
+});
+
+
+function playSong(index){
+
+if(
+index<0||
+index>=musicLibrary.length
+){
+
+return;
+
+}
+
+
+currentSong=index;
+
+
+const song=
+musicLibrary[index];
+
+
+audioPlayer.src=
+song.url;
+
+
+document.getElementById(
+"nowPlaying"
+)
+.textContent=
+song.title;
+
+
+document.getElementById(
+"nowArtist"
+)
+.textContent=
+"🎤 "+song.artist;
+
+
+audioPlayer.play();
+
+
+document.getElementById(
+"playPause"
+)
+.textContent=
+"⏸ Pause";
+
+
+renderMusicLibrary();
+
+}
+
+
+document
+.getElementById("playPause")
+.addEventListener(
+"click",
+()=>{
+
+if(!audioPlayer.src){
+
+toast(
+"Choose a song first 🎧"
+);
+
+return;
+
+}
+
+
+if(audioPlayer.paused){
+
+audioPlayer.play();
+
+document.getElementById(
+"playPause"
+)
+.textContent=
+"⏸ Pause";
+
+}else{
+
+audioPlayer.pause();
+
+document.getElementById(
+"playPause"
+)
+.textContent=
+"▶ Play";
+
+}
+
+});
+
+
+document
+.getElementById("nextSong")
+.addEventListener(
+"click",
+()=>{
+
+if(
+musicLibrary.length===0
+){
+
+return;
+
+}
+
+
+currentSong=
+(currentSong+1)
+%musicLibrary.length;
+
+
+playSong(currentSong);
+
+});
+
+
+document
+.getElementById("previousSong")
+.addEventListener(
+"click",
+()=>{
+
+if(
+musicLibrary.length===0
+){
+
+return;
+
+}
+
+
+currentSong=
+(
+currentSong-1+
+musicLibrary.length
+)
+%musicLibrary.length;
+
+
+playSong(currentSong);
+
+});
+
+
+audioPlayer.addEventListener(
+"ended",
+()=>{
+
+if(
+musicLibrary.length===0
+){
+
+return;
+
+}
+
+
+currentSong=
+(currentSong+1)
+%musicLibrary.length;
+
+
+playSong(currentSong);
+
+});
+
+
+function deleteSong(index){
+
+if(
+!musicLibrary[index]
+){
+
+return;
+
+}
+
+
+URL.revokeObjectURL(
+musicLibrary[index].url
+);
+
+
+musicLibrary.splice(
+index,
+1
+);
+
+
+if(currentSong===index){
+
+audioPlayer.pause();
+
+audioPlayer.removeAttribute(
+"src"
+);
+
+document.getElementById(
+"nowPlaying"
+)
+.textContent=
+"Nothing playing";
+
+
+document.getElementById(
+"nowArtist"
+)
+.textContent=
+"Choose a song from your playlist.";
+
+
+document.getElementById(
+"playPause"
+)
+.textContent=
+"▶ Play";
+
+
+currentSong=-1;
+
+}
+
+else if(
+currentSong>index
+){
+
+currentSong--;
+
+}
+
+
+renderMusicLibrary();
+
+
+toast(
+"🗑 Song removed."
+);
+
+}
+
+
+renderMusicLibrary();
+
+
+/* =========================
+   MUSIC VIBES
+========================= */
+
+const musicButtons=
+document.querySelectorAll(
+".music-button"
+);
+
+
+musicButtons.forEach(
+button=>{
+
+button.addEventListener(
+"click",
+()=>{
+
+musicButtons.forEach(
+btn=>{
+btn.classList.remove(
+"selected"
+);
+});
+
+
+button.classList.add(
+"selected"
+);
+
+
+const vibe=
+button.dataset.music;
+
+
+document.getElementById(
+"musicStatus"
+)
+.textContent=
+"Current vibe: "+vibe;
+
+
+localStorage.setItem(
+"roryMusic",
+vibe
+);
+
+
+toast(
+"🎧 "+vibe
+);
+
+});
+
+});
+
+
+const savedMusic=
+localStorage.getItem(
+"roryMusic"
+);
+
+
+if(savedMusic){
+
+document.getElementById(
+"musicStatus"
+)
+.textContent=
+"Current vibe: "+savedMusic;
+
+
+musicButtons.forEach(
+button=>{
+
+if(
+button.dataset.music===
+savedMusic
+){
+
+button.classList.add(
+"selected"
+);
+
+}
+
+});
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+function getStreak(){
+
+return Number(
+localStorage.getItem(
+"roryStreak"
+)||0
+);
+
+}
+
+
+function renderStats(){
+
+const totalMinutes=
+studyData.reduce(
+(sum,item)=>
+sum+item.minutes,
+0
+);
+
+
+const totalPages=
+readingData.reduce(
+(sum,item)=>
+sum+item.pages,
+0
+);
+
+
+const completedGoals=
+goals.filter(
+goal=>goal.done
+).length;
+
+
+document.getElementById(
+"statMinutes"
+)
+.textContent=
+totalMinutes;
+
+
+document.getElementById(
+"statPages"
+)
+.textContent=
+totalPages;
+
+
+document.getElementById(
+"statGoals"
+)
+.textContent=
+completedGoals;
+
+
+document.getElementById(
+"statStreak"
+)
+.textContent=
+getStreak();
+
+
+document.getElementById(
+"streak"
+)
+.textContent=
+getStreak();
+
+}
+
+
+renderStats();
+
+
+/* =========================
+   NIGHT RESET
+========================= */
+
+const nightTasks=
+document.querySelectorAll(
+".nightTask"
+);
+
+
+const savedNight=
+JSON.parse(
+localStorage.getItem(
+"roryNight"
+)||"[]"
+);
+
+
+nightTasks.forEach(
+(task,index)=>{
+
+task.checked=
+savedNight[index]===true;
+
+});
+
+
+document.getElementById(
+"tomorrowNote"
+)
+.value=
+localStorage.getItem(
+"roryTomorrow"
+)||"";
+
+
+document
+.getElementById("saveNight")
+.addEventListener(
+"click",
+()=>{
+
+const states=
+[...nightTasks]
+.map(task=>task.checked);
+
+
+localStorage.setItem(
+"roryNight",
+JSON.stringify(states)
+);
+
+
+localStorage.setItem(
+"roryTomorrow",
+document.getElementById(
+"tomorrowNote"
+).value
+);
+
+
+toast(
+"🌙 Night reset saved!"
+);
+
+
+renderAchievements();
+
+});
+
+
+/* =========================
+   MASCOT
+========================= */
+
+document
+.getElementById("mascot")
+.addEventListener(
+"click",
+()=>{
+
+const messages=[
+
+"🦊 You can do this!",
+
+"☕ One focused session at a time.",
+
+"📚 Future you will thank you.",
+
+"✨ Tiny progress still counts.",
+
+"🌙 Remember to rest too!",
+
+"📖 A little reading sounds lovely.",
+
+"🎓 Scholar mode: activated.",
+
+"🏆 Your next achievement is waiting!",
+
+"🎧 Time for a study playlist!"
+
+];
+
+
+const random=
+messages[
+Math.floor(
+Math.random()*messages.length
+)
+];
+
+
+toast(random);
+
+});
+
+
+</script>
+
+</body>
+</html>
